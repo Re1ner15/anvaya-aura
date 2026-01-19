@@ -91,7 +91,7 @@ const HeroSection = () => {
           {/* Main headline with word-by-word animation */}
           <h1 className="text-hero-mobile md:text-hero font-bold text-foreground mb-6">
             <AnimatedWords delay={0.3} staggerDelay={0.1}>
-              The AI Energy Operator
+              The Future Energy Operator
             </AnimatedWords>
             <br />
             <span className="text-gradient">
