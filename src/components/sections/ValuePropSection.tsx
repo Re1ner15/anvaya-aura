@@ -29,7 +29,7 @@ const ValuePropSection = () => {
     <section id="product" className="section-padding bg-gradient-to-b from-secondary/30 to-background">
       <div className="container-custom">
         {/* Section headline */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <ScrollReveal>
             <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
               The Niva Difference
@@ -89,7 +89,7 @@ const ValuePropSection = () => {
 
         {/* Stats bar */}
         <ScrollReveal delay={0.3}>
-          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border border-primary/10">
+          <div className="mt-12 p-6 rounded-2xl bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border border-primary/10">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { value: '10-30%', label: 'Energy Savings' },

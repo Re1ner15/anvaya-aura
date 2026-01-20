@@ -28,8 +28,8 @@ const pillars = [
     icon: Award,
     title: 'Proven Technology',
     description: 'NILM technology backed by decades of research. Now accessible through modern AI.',
-    highlight: 'Y Combinator',
-    highlightLabel: 'Backed',
+    highlight: '10+',
+    highlightLabel: 'Years Research',
   },
 ];
 
@@ -41,7 +41,7 @@ const TrustSection = () => {
       
       <div className="container-custom relative z-10">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <ScrollReveal>
             <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
               Why Niva
@@ -131,7 +131,7 @@ const TrustSection = () => {
 
         {/* Logo cloud placeholder */}
         <ScrollReveal delay={0.3}>
-          <div className="mt-20 text-center">
+          <div className="mt-12 text-center">
             <p className="text-sm text-muted-foreground mb-8">
               Trusted by forward-thinking hospitality leaders
             </p>
