@@ -45,7 +45,7 @@ const SavingsSection = () => {
     <section id="results" className="section-padding bg-gradient-to-b from-background to-secondary/20">
       <div className="container-custom">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <ScrollReveal>
             <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
               Proven Results

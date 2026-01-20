@@ -47,7 +47,7 @@ const HowItWorksSection = () => {
       
       <div className="container-custom relative z-10">
         {/* Section header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <ScrollReveal>
             <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
               Simple Process
