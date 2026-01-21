@@ -1,28 +1,30 @@
 import { motion } from 'framer-motion';
-import logo from '@/assets/logo.jpeg';
+import { Link } from 'react-router-dom';
+import logo from '@/assets/anvaya-logo.png';
 import { Linkedin, Twitter, Mail } from 'lucide-react';
+import ParticleBackground from '@/components/animations/ParticleBackground';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-near-black text-white/70 py-16">
-      <div className="container-custom px-4">
+    <footer className="bg-near-black text-white/70 py-16 relative overflow-hidden">
+      <ParticleBackground particleColor="teal" particleCount={10} className="opacity-20" />
+      
+      <div className="container-custom px-4 relative z-10">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
           <div className="md:col-span-2">
-            <motion.div
-              className="flex items-center gap-3 mb-4"
-              whileHover={{ scale: 1.02 }}
-            >
-              <img src={logo} alt="Anvaya EnerTech" className="h-10 w-auto" />
-              <div>
-                <span className="text-lg font-semibold text-white">Anvaya</span>
-                <span className="text-lg font-light text-white/70 ml-1">EnerTech</span>
-              </div>
+            <motion.div whileHover={{ scale: 1.02 }}>
+              <Link to="/" className="flex items-center gap-3 mb-4">
+                <img src={logo} alt="Anvaya EnerTech" className="h-10 w-auto" />
+                <div>
+                  <span className="text-lg font-semibold text-white">Anvaya</span>
+                  <span className="text-lg font-light text-white/70 ml-1">EnerTech</span>
+                </div>
+              </Link>
             </motion.div>
             <p className="text-white/50 max-w-sm mb-6">
-              Making the Invisible, Visible. The AI Energy Operator for Hotels—delivering 10-30% electricity savings with zero compromise.
+              Making the Invisible, Visible. Neev is the AI Energy Operator for buildings—delivering 10-30% electricity savings with zero compromise.
             </p>
             <div className="flex items-center gap-4">
               {[
@@ -43,18 +45,22 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Links */}
           <div>
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-3">
-              {['How it Works', 'Features', 'Case Studies', 'Pricing'].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
+              {[
+                { label: 'How it Works', href: '/how-it-works' },
+                { label: 'Features', href: '/product' },
+                { label: 'Markets', href: '/markets' },
+                { label: 'Pilot Program', href: '/pilot-program' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.href}
                     className="text-white/50 hover:text-primary transition-colors"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -63,21 +69,23 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-3">
-              {['About', 'Blog', 'Careers', 'Contact'].map((item) => (
-                <li key={item}>
-                  <a
-                    href="#"
+              {[
+                { label: 'About', href: '/about' },
+                { label: 'Contact', href: '/about#contact' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.href}
                     className="text-white/50 hover:text-primary transition-colors"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-white/40">
             © {currentYear} Anvaya EnerTech. All rights reserved.
