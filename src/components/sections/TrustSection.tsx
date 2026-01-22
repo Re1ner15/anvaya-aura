@@ -1,41 +1,21 @@
 import { motion } from 'framer-motion';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/animations/ScrollReveal';
-import { Shield, Clock, Leaf, Award } from 'lucide-react';
+import ParticleBackground from '@/components/animations/ParticleBackground';
+import { Building2, Factory, Home, Hotel } from 'lucide-react';
 
-const pillars = [
-  {
-    icon: Shield,
-    title: 'Zero Compromise',
-    description: 'Guest comfort is sacred. Our AI optimizes invisibly—no temperature complaints, no disruption, just savings.',
-    highlight: '100%',
-    highlightLabel: 'Comfort Score',
-  },
-  {
-    icon: Clock,
-    title: '24/7 Autonomous',
-    description: 'While you sleep, Niva watches every watt. Continuous optimization without manual intervention.',
-    highlight: '24/7',
-    highlightLabel: 'Active Monitoring',
-  },
-  {
-    icon: Leaf,
-    title: 'Sustainability Built-In',
-    description: 'Reduce your carbon footprint while improving profitability. ESG reporting included.',
-    highlight: '30%',
-    highlightLabel: 'Emission Reduction',
-  },
-  {
-    icon: Award,
-    title: 'Proven Technology',
-    description: 'NILM technology backed by decades of research. Now accessible through modern AI.',
-    highlight: '10+',
-    highlightLabel: 'Years Research',
-  },
+const buildingTypes = [
+  { icon: Hotel, label: 'Hotels' },
+  { icon: Building2, label: 'Offices' },
+  { icon: Factory, label: 'Factories' },
+  { icon: Home, label: 'Apartments' },
 ];
 
 const TrustSection = () => {
   return (
     <section id="about" className="section-padding bg-background relative overflow-hidden">
+      {/* Particle background */}
+      <ParticleBackground color="teal" density="low" />
+      
       {/* Background */}
       <div className="absolute inset-0 bg-mesh opacity-40" />
       
@@ -44,7 +24,7 @@ const TrustSection = () => {
         <div className="text-center mb-12">
           <ScrollReveal>
             <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
-              Why Niva
+              Building the Future
             </span>
           </ScrollReveal>
           <h2 className="text-display-mobile md:text-display font-bold text-foreground mb-4">
@@ -55,7 +35,7 @@ const TrustSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              Why Forward-Thinking Hotels
+              Pioneering Autonomous
             </motion.span>
             <br />
             <motion.span
@@ -65,92 +45,59 @@ const TrustSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Choose Niva
+              Energy Management
             </motion.span>
           </h2>
+          <ScrollReveal delay={0.2}>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Starting with hotels in February 2025, expanding across commercial, industrial, and residential sectors.
+            </p>
+          </ScrollReveal>
         </div>
 
-        {/* Trust pillars grid */}
-        <StaggerContainer className="grid md:grid-cols-2 gap-6 lg:gap-8" staggerDelay={0.1}>
-          {pillars.map((pillar, index) => (
-            <StaggerItem key={pillar.title}>
-              <motion.div
-                className="group relative p-8 rounded-2xl bg-card border border-border/50 shadow-card h-full"
-                whileHover={{ y: -8 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              >
-                <div className="flex items-start gap-6">
-                  {/* Icon */}
-                  <motion.div
-                    className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center flex-shrink-0 border border-primary/20"
-                    whileHover={{ rotate: 360, scale: 1.1 }}
-                    transition={{ duration: 0.6 }}
-                  >
-                    <pillar.icon className="w-7 h-7 text-primary" />
-                  </motion.div>
-
-                  {/* Content */}
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed mb-4">
-                      {pillar.description}
-                    </p>
-
-                    {/* Highlight metric */}
-                    <div className="flex items-center gap-3">
-                      <motion.span
-                        className="text-2xl font-bold text-gradient"
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                      >
-                        {pillar.highlight}
-                      </motion.span>
-                      <span className="text-sm text-muted-foreground">
-                        {pillar.highlightLabel}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hover underline */}
-                <motion.div
-                  className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full origin-left"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.4 }}
-                />
-
-                {/* Background glow on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-              </motion.div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-
-        {/* Logo cloud placeholder */}
+        {/* Building types icons */}
         <ScrollReveal delay={0.3}>
-          <div className="mt-12 text-center">
-            <p className="text-sm text-muted-foreground mb-8">
-              Trusted by forward-thinking hospitality leaders
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
-              {['Hotel Group A', 'Resort Chain B', 'Boutique Hotels', 'Luxury Resorts'].map((name, index) => (
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-12">
+            {buildingTypes.map((type, index) => (
+              <motion.div
+                key={type.label}
+                className="flex flex-col items-center gap-3"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + index * 0.1 }}
+              >
                 <motion.div
-                  key={name}
-                  className="px-6 py-3 rounded-lg bg-muted/50 text-muted-foreground font-medium"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.4 + index * 0.1 }}
-                  whileHover={{ scale: 1.05, opacity: 1 }}
+                  className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center border border-primary/20"
+                  animate={{ y: [0, -4, 0] }}
+                  transition={{ duration: 3 + index * 0.5, repeat: Infinity, ease: 'easeInOut' }}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
                 >
-                  {name}
+                  <type.icon className="w-8 h-8 text-primary" />
                 </motion.div>
-              ))}
-            </div>
+                <span className="text-sm font-medium text-muted-foreground">{type.label}</span>
+              </motion.div>
+            ))}
           </div>
+        </ScrollReveal>
+
+        {/* Pilot launch badge */}
+        <ScrollReveal delay={0.5}>
+          <motion.div
+            className="text-center"
+            whileHover={{ scale: 1.02 }}
+          >
+            <div className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 border border-primary/20">
+              <motion.div
+                className="w-3 h-3 rounded-full bg-primary"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <span className="text-lg font-semibold text-foreground">
+                Pilot Program Launching February 2025
+              </span>
+            </div>
+          </motion.div>
         </ScrollReveal>
       </div>
     </section>

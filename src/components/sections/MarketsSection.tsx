@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/animations/ScrollReveal';
 import { SplitReveal, Typewriter } from '@/components/animations/AnimatedText';
+import ParticleBackground from '@/components/animations/ParticleBackground';
 import { Hotel, Building2, Factory, Home, ArrowRight, Bell } from 'lucide-react';
 import { useState } from 'react';
 
@@ -140,6 +141,9 @@ const MarketsSection = () => {
 
   return (
     <section id="markets" className="section-padding bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
+      {/* Particle background */}
+      <ParticleBackground color="white" density="medium" />
+      
       {/* Background decoration */}
       <div className="absolute inset-0 bg-mesh opacity-40" />
       

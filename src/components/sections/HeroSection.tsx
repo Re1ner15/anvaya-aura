@@ -2,7 +2,8 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'fram
 import { useRef, useEffect } from 'react';
 import { AnimatedWords, Typewriter } from '@/components/animations/AnimatedText';
 import { Floating } from '@/components/animations/ScrollReveal';
-import { ArrowRight } from 'lucide-react';
+import ParticleBackground from '@/components/animations/ParticleBackground';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import dashboardImage from '@/assets/dashboard.png';
 
 const HeroSection = () => {
@@ -40,6 +41,9 @@ const HeroSection = () => {
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-secondary/30"
     >
+      {/* Animated particle background */}
+      <ParticleBackground color="teal" density="medium" />
+      
       {/* Animated background mesh */}
       <div className="absolute inset-0 bg-mesh opacity-60" />
       
@@ -74,6 +78,19 @@ const HeroSection = () => {
         className="relative z-10 container-custom px-4 pt-24 pb-16"
       >
         <div className="max-w-5xl mx-auto text-center">
+          {/* Badge */}
+          <motion.div
+            className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full bg-primary/10 border border-primary/20"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs font-semibold text-primary uppercase tracking-wider">
+              Autonomous AI Energy Operator
+            </span>
+          </motion.div>
+
           {/* Main headline with word-by-word animation */}
           <h1 className="text-hero-mobile md:text-hero font-bold text-foreground mb-4">
             <AnimatedWords delay={0.3} staggerDelay={0.1}>
@@ -92,20 +109,31 @@ const HeroSection = () => {
 
           {/* Subheadline with typewriter effect */}
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto"
             style={{ x, y: yMouse }}
           >
             <Typewriter
-              text="10-30% Electricity Savings, Zero Compromise"
+              text="Neev eliminates building energy waste through intelligent, real-time monitoring."
               delay={1.8}
-              speed={40}
-              showCursor={true}
+              speed={30}
+              showCursor={false}
             />
+          </motion.p>
+
+          <motion.p
+            className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, filter: 'blur(10px)' }}
+            animate={{ opacity: 1, filter: 'blur(0px)' }}
+            transition={{ delay: 2.5, duration: 1 }}
+          >
+            <span className="text-primary font-semibold">10-30% savings</span>
+            <span className="text-muted-foreground"> with </span>
+            <span className="text-primary font-semibold">Zero hardware installation</span>
           </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.8, duration: 0.6 }}
@@ -136,18 +164,31 @@ const HeroSection = () => {
             </motion.a>
           </motion.div>
 
-          {/* Floating dashboard mockup with real image */}
+          {/* Trust badge */}
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 3.2, duration: 0.5 }}
+          >
+            <CheckCircle className="w-4 h-4 text-primary" />
+            <span className="text-sm text-muted-foreground">
+              Pilot Program Launching February 2025
+            </span>
+          </motion.div>
+
+          {/* Floating dashboard mockup with real image - 30% larger */}
           <Floating duration={8} distance={10}>
             <motion.div
-              className="relative mx-auto max-w-4xl"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 3.2, duration: 0.8 }}
+              className="relative mx-auto max-w-5xl"
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 3.5, duration: 1 }}
             >
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50">
                 <img 
                   src={dashboardImage} 
-                  alt="Niva Energy Dashboard showing real-time hotel energy consumption and savings"
+                  alt="Neev Energy Dashboard showing real-time building energy consumption and savings"
                   className="w-full h-auto"
                 />
               </div>

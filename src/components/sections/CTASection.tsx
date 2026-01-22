@@ -79,7 +79,7 @@ const CTASection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Join forward-thinking hotels achieving 10-30% savings with zero compromise on guest experience.
+            Join forward-thinking property owners achieving 10-30% savings with zero compromise.
           </motion.p>
 
           {/* CTA Buttons */}
