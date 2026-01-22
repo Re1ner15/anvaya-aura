@@ -124,8 +124,10 @@ const HowItWorks = () => {
       </section>
 
       {/* Steps Section */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
+      <section className="section-padding bg-background relative overflow-hidden">
+        <ParticleBackground particleColor="teal" particleCount={15} className="opacity-30" />
+        
+        <div className="container-custom relative z-10">
           {steps.map((step, index) => (
             <ScrollReveal 
               key={step.number} 
@@ -238,8 +240,10 @@ const HowItWorks = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="section-padding bg-background">
-        <div className="container-custom">
+      <section className="section-padding bg-background relative overflow-hidden">
+        <ParticleBackground particleColor="teal" particleCount={15} className="opacity-30" />
+        
+        <div className="container-custom relative z-10">
           <ScrollReveal className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Frequently Asked Questions

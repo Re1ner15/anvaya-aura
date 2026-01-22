@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
+import ParticleBackground from '@/components/animations/ParticleBackground';
 import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    question: 'How quickly can Niva be installed?',
-    answer: 'Installation is non-invasive and typically completed within 1-2 days. Our clamp-on sensors require no rewiring or downtime. Most properties are fully operational with Niva within 30 days of signing.',
+    question: 'How quickly can Neev be installed?',
+    answer: 'Installation is non-invasive and typically completed within 1-2 days. Our clamp-on sensors require no rewiring or downtime. Most properties are fully operational with Neev within 30 days of signing.',
   },
   {
     question: 'Will this affect guest comfort?',
@@ -18,11 +19,11 @@ const faqs = [
   },
   {
     question: 'What if we already have an energy management system?',
-    answer: 'Niva complements existing systems by adding AI-powered autonomous optimization. Our NILM technology provides granular insights that traditional systems miss, typically finding an additional 10-15% savings on top of existing measures.',
+    answer: 'Neev complements existing systems by adding AI-powered autonomous optimization. Our NILM technology provides granular insights that traditional systems miss, typically finding an additional 10-15% savings on top of existing measures.',
   },
   {
     question: 'Is there a minimum property size requirement?',
-    answer: 'Niva works best for properties with 50+ rooms, though we evaluate each opportunity individually. Our technology scales from boutique hotels to large resorts.',
+    answer: 'Neev works best for properties with 50+ rooms, though we evaluate each opportunity individually. Our technology scales from boutique hotels to large resorts.',
   },
 ];
 
@@ -30,8 +31,11 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section-padding bg-secondary/30">
-      <div className="container-custom">
+    <section className="section-padding bg-secondary/30 relative overflow-hidden">
+      {/* Particle background */}
+      <ParticleBackground color="teal" density="low" />
+      
+      <div className="container-custom relative z-10">
         <div className="max-w-3xl mx-auto">
           {/* Section header */}
           <div className="text-center mb-12">

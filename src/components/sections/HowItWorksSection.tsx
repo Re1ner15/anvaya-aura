@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/animations/ScrollReveal';
 import { GradientWipe } from '@/components/animations/AnimatedText';
+import ParticleBackground from '@/components/animations/ParticleBackground';
 import { Plug, Brain, TrendingUp, ArrowRight } from 'lucide-react';
 
 const steps = [
@@ -42,6 +43,9 @@ const steps = [
 const HowItWorksSection = () => {
   return (
     <section id="how-it-works" className="section-padding bg-background relative overflow-hidden">
+      {/* Particle background */}
+      <ParticleBackground color="teal" density="low" />
+      
       {/* Background decoration */}
       <div className="absolute inset-0 bg-mesh opacity-30" />
       

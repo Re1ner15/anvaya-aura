@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/animations/ScrollReveal';
 import { Counter } from '@/components/animations/Counter';
+import ParticleBackground from '@/components/animations/ParticleBackground';
 import { Building2, Hotel, Factory, TrendingUp, Star, Zap } from 'lucide-react';
 
 const scenarios = [
@@ -42,8 +43,11 @@ const scenarios = [
 
 const SavingsSection = () => {
   return (
-    <section id="results" className="section-padding bg-gradient-to-b from-background to-secondary/20">
-      <div className="container-custom">
+    <section id="results" className="section-padding bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
+      {/* Particle background */}
+      <ParticleBackground color="teal" density="low" />
+      
+      <div className="container-custom relative z-10">
         {/* Section header */}
         <div className="text-center mb-12">
           <ScrollReveal>
