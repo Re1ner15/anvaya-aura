@@ -14,24 +14,32 @@ interface ParticleBackgroundProps {
   particleColor?: 'teal' | 'white';
   particleCount?: number;
   className?: string;
+  color?: 'teal' | 'white';
+  density?: 'low' | 'medium' | 'high';
 }
 
 const ParticleBackground = ({ 
-  particleColor = 'teal', 
-  particleCount = 25,
-  className = ''
+  particleColor, 
+  particleCount,
+  className = '',
+  color = 'teal',
+  density = 'medium'
 }: ParticleBackgroundProps) => {
+  // Support both old and new props
+  const finalColor = particleColor || color;
+  const densityMap = { low: 15, medium: 25, high: 40 };
+  const finalCount = particleCount || densityMap[density];
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>();
 
   const getColor = useCallback(() => {
-    return particleColor === 'teal' ? 'rgba(0, 168, 150, ' : 'rgba(255, 255, 255, ';
-  }, [particleColor]);
+    return finalColor === 'teal' ? 'rgba(0, 168, 150, ' : 'rgba(255, 255, 255, ';
+  }, [finalColor]);
 
   const initParticles = useCallback((width: number, height: number) => {
     particlesRef.current = [];
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < finalCount; i++) {
       particlesRef.current.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -41,7 +49,7 @@ const ParticleBackground = ({
         opacity: Math.random() * 0.4 + 0.3,
       });
     }
-  }, [particleCount]);
+  }, [finalCount]);
 
   const animate = useCallback(() => {
     const canvas = canvasRef.current;

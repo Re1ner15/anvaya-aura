@@ -1,13 +1,14 @@
 import { motion } from 'framer-motion';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/animations/ScrollReveal';
 import { SplitReveal } from '@/components/animations/AnimatedText';
+import ParticleBackground from '@/components/animations/ParticleBackground';
 import { Eye, Cpu, TrendingDown } from 'lucide-react';
 
 const features = [
   {
     icon: Eye,
     title: 'Make Invisible Visible',
-    description: 'Our NILM technology sees every watt flowing through your property—identifying waste others miss.',
+    description: 'Our NILM technology sees every watt flowing through your building—identifying waste others miss.',
     gradient: 'from-primary to-primary-light',
   },
   {
@@ -19,28 +20,31 @@ const features = [
   {
     icon: TrendingDown,
     title: 'Savings Stack Up',
-    description: '10-30% electricity reduction with zero compromise on guest comfort or operational efficiency.',
+    description: '10-30% electricity reduction with zero compromise on occupant comfort or operational efficiency.',
     gradient: 'from-accent to-cyan-light',
   },
 ];
 
 const ValuePropSection = () => {
   return (
-    <section id="product" className="section-padding bg-gradient-to-b from-secondary/30 to-background">
-      <div className="container-custom">
+    <section id="product" className="section-padding bg-gradient-to-b from-secondary/30 to-background relative overflow-hidden">
+      {/* Particle background */}
+      <ParticleBackground color="teal" density="low" />
+      
+      <div className="container-custom relative z-10">
         {/* Section headline */}
         <div className="text-center mb-12">
           <ScrollReveal>
             <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
-              The Niva Difference
+              The Neev Difference
             </span>
           </ScrollReveal>
           <h2 className="text-display-mobile md:text-display font-bold text-foreground mb-4">
-            <SplitReveal>One Platform. Complete Energy Autonomy.</SplitReveal>
+            <SplitReveal>One Platform. Complete Energy Autonomy for Every Building.</SplitReveal>
           </h2>
           <ScrollReveal delay={0.2}>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Traditional energy management shows you data. Niva takes autonomous action.
+              From hotels to offices, Neev makes energy waste visible and takes autonomous action.
             </p>
           </ScrollReveal>
         </div>
