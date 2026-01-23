@@ -52,7 +52,7 @@ const techSteps = [
   {
     step: '01',
     title: 'Non-Intrusive Load Monitoring',
-    description: 'NILM technology disaggregates total energy consumption into individual device-level usage without additional hardware.',
+    description: 'NILM technology disaggregates total energy consumption into individual device-level usage with minimal setup.',
   },
   {
     step: '02',
@@ -101,7 +101,7 @@ const Product = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              Neev makes invisible energy waste visible and takes autonomous action—delivering 10-30% savings with zero hardware installation.
+              Neev makes invisible energy waste visible and takes autonomous action—delivering 10-30% savings with fast deployment and minimal disruption.
             </motion.p>
           </div>
         </div>
@@ -150,7 +150,7 @@ const Product = () => {
               Our Technology
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              How Neev Works Under the Hood
+              Built on Agentic AI and NILM
             </h2>
           </ScrollReveal>
           
@@ -207,7 +207,7 @@ const Product = () => {
                     <div className="mt-6 pt-6 border-t border-border">
                       <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                         <CheckCircle2 className="w-4 h-4 text-primary" />
-                        Zero hardware required
+                        Fast deployment
                       </div>
                     </div>
                   </div>
@@ -237,7 +237,7 @@ const Product = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Schedule a Demo
+                Join Pilot Program
               </motion.a>
               <motion.a
                 href="/how-it-works"

@@ -28,13 +28,15 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-4">
               {[
-                { icon: Linkedin, href: '#' },
+                { icon: Linkedin, href: 'https://www.linkedin.com/company/anvaya-enertech' },
                 { icon: Twitter, href: '#' },
-                { icon: Mail, href: 'mailto:hello@anvaya.energy' },
+                { icon: Mail, href: 'mailto:director@anvayaenertech.in' },
               ].map(({ icon: Icon, href }, index) => (
                 <motion.a
                   key={index}
                   href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-colors"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -82,6 +84,24 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="mailto:director@anvayaenertech.in"
+                  className="text-white/50 hover:text-primary transition-colors"
+                >
+                  director@anvayaenertech.in
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/anvaya-enertech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/50 hover:text-primary transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </li>
             </ul>
           </div>
         </div>
