@@ -316,7 +316,7 @@ const Markets = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { value: 25, suffix: '%', label: 'Average Savings' },
-                { value: 0, suffix: '', label: 'Hardware Required', prefix: 'Zero' },
+                { value: 30, suffix: ' min', label: 'Setup Time', prefix: '<' },
                 { value: 100, suffix: '%', label: 'Comfort Maintained' },
                 { value: 30, suffix: ' days', label: 'Time to Deploy', prefix: '<' },
               ].map((stat, i) => (

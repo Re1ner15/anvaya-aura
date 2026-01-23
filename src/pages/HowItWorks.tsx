@@ -19,13 +19,13 @@ const steps = [
     number: '01',
     icon: Plug,
     title: 'Connect in Minutes',
-    subtitle: 'Zero Hardware Installation',
-    description: 'Neev integrates directly with your existing building management systems and smart meters. No new hardware, no complex installations, no disruption to operations.',
+    subtitle: 'Fast Deployment',
+    description: 'Neev integrates directly with your existing building management systems and smart meters. Minimal disruption to operations, setup completed remotely.',
     features: [
       'Direct API integration with existing systems',
       'Compatible with major BMS platforms',
       'Setup completed remotely',
-      'No downtime required',
+      'Minimal downtime required',
     ],
     metric: { value: 30, label: 'Minutes to Connect', suffix: '' },
   },
@@ -33,8 +33,8 @@ const steps = [
     number: '02',
     icon: Brain,
     title: 'AI Learns & Optimizes',
-    subtitle: 'Continuous Intelligence',
-    description: 'Our NILM (Non-Intrusive Load Monitoring) technology disaggregates your total energy consumption into individual device-level usage. The AI learns your building unique patterns and identifies optimization opportunities.',
+    subtitle: 'Agentic AI + NILM',
+    description: 'Our platform combines Agentic AI for autonomous decision-making with NILM (Non-Intrusive Load Monitoring) to disaggregate energy consumption into device-level usage. The AI learns your building\'s unique patterns and identifies optimization opportunities.',
     features: [
       'Device-level energy disaggregation',
       'Pattern recognition across seasons',
@@ -62,7 +62,7 @@ const steps = [
 const faqs = [
   {
     q: 'How long does installation take?',
-    a: 'Installation is typically completed within 30 minutes. We integrate directly with your existing systems—no new hardware required.',
+    a: 'Installation is typically completed within 30 minutes. We integrate directly with your existing systems with minimal disruption.',
   },
   {
     q: 'Will this affect occupant comfort?',
@@ -199,10 +199,10 @@ const HowItWorks = () => {
               Technology
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              NILM: The Brain Behind Neev
+              Agentic AI + NILM: The Brain Behind Neev
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Non-Intrusive Load Monitoring technology allows us to disaggregate your building's total energy consumption into individual device-level usage—without any additional sensors.
+              Agentic AI enables autonomous decision-making 24/7, while NILM technology disaggregates your building's energy consumption into device-level usage—making the invisible visible.
             </p>
           </ScrollReveal>
 
@@ -288,7 +288,7 @@ const HowItWorks = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Schedule a Demo
+                Join Pilot Program
               </motion.a>
               <motion.a
                 href="/product"

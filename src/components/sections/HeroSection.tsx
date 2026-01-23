@@ -128,7 +128,7 @@ const HeroSection = () => {
           >
             <span className="text-primary font-semibold">10-30% savings</span>
             <span className="text-muted-foreground"> with </span>
-            <span className="text-primary font-semibold">Zero hardware installation</span>
+            <span className="text-primary font-semibold">Fast deployment</span>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -139,12 +139,12 @@ const HeroSection = () => {
             transition={{ delay: 2.8, duration: 0.6 }}
           >
             <motion.a
-              href="#demo"
+              href="/pilot-program"
               className="group btn-primary flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
             >
-              Schedule a Demo
+              Join Pilot Program
               <motion.span
                 className="inline-block"
                 initial={{ x: 0 }}
@@ -155,12 +155,12 @@ const HeroSection = () => {
               </motion.span>
             </motion.a>
             <motion.a
-              href="#pilot"
+              href="/how-it-works"
               className="btn-secondary"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Join Pilot Program
+              Learn More
             </motion.a>
           </motion.div>
 

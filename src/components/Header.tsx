@@ -85,7 +85,7 @@ const Header = () => {
                   to="/pilot-program"
                   className="btn-primary !px-5 !py-2.5 text-sm"
                 >
-                  Get Demo
+                  Join Pilot Program
                 </Link>
               </motion.div>
               

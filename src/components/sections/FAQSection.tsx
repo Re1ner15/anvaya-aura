@@ -128,11 +128,11 @@ const FAQSection = () => {
                 Still have questions?
               </p>
               <motion.a
-                href="mailto:hello@anvaya.energy"
+                href="mailto:director@anvayaenertech.in"
                 className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
                 whileHover={{ x: 5 }}
               >
-                Get in touch with our team →
+                Contact us →
               </motion.a>
             </div>
           </ScrollReveal>

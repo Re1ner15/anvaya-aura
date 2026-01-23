@@ -43,10 +43,10 @@ const ParticleBackground = ({
       particlesRef.current.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.8,
-        vy: (Math.random() - 0.5) * 0.8,
-        size: Math.random() * 4 + 4,
-        opacity: Math.random() * 0.4 + 0.3,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: Math.random() * 2 + 3,
+        opacity: Math.random() * 0.2 + 0.4,
       });
     }
   }, [finalCount]);

@@ -41,15 +41,15 @@ const values = [
 const team = [
   {
     name: 'Ranjit',
-    role: 'Co-founder & CTO',
-    focus: 'Technical Leadership',
+    role: 'Co-founder',
+    focus: '',
     description: 'Leading the development of Neev AI and NILM technology stack.',
   },
   {
     name: 'Aditya Joshi',
-    role: 'Co-founder & CEO',
-    focus: 'Business Strategy',
-    description: 'Driving business development and partnerships across the hospitality sector.',
+    role: 'Co-founder',
+    focus: '',
+    description: 'Driving business development and partnerships across the building energy sector.',
   },
 ];
 
@@ -123,7 +123,7 @@ const About = () => {
                 Buildings consume 40% of global energy, yet most of this consumption is invisible to property owners. Waste happens silently—through inefficient HVAC schedules, forgotten equipment, and unoptimized loads.
               </p>
               <p className="text-muted-foreground mb-6">
-                At Anvaya EnerTech, we're building Neev—an AI Energy Operator that makes this invisible waste visible and takes autonomous action to eliminate it. No hardware installations, no complex setups, just intelligent optimization that works 24/7.
+                At Anvaya EnerTech, we're building Neev—an AI Energy Operator that makes this invisible waste visible and takes autonomous action to eliminate it. Fast deployment, minimal disruption, just intelligent optimization that works 24/7.
               </p>
               <p className="text-muted-foreground">
                 We're starting with hotels because they represent the perfect use case: high energy intensity, 24/7 operations, and critical comfort requirements. But our vision extends to every building—commercial, industrial, and residential.
@@ -201,10 +201,10 @@ const About = () => {
               Our Technology
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Built on NILM
+              Built on Agentic AI and NILM
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Non-Intrusive Load Monitoring allows us to disaggregate your building's total energy consumption into device-level usage—without any additional sensors.
+              Our platform combines two cutting-edge technologies: Agentic AI for autonomous decision-making that acts on your behalf 24/7, and NILM (Non-Intrusive Load Monitoring) for advanced energy disaggregation—making the invisible visible.
             </p>
           </ScrollReveal>
 
@@ -257,8 +257,7 @@ const About = () => {
                     <Users className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-primary font-medium mb-1">{member.role}</p>
-                  <p className="text-white/50 text-sm mb-4">{member.focus}</p>
+                  <p className="text-primary font-medium mb-3">{member.role}</p>
                   <p className="text-white/70 text-sm">{member.description}</p>
                 </motion.div>
               </ScrollReveal>
@@ -288,8 +287,8 @@ const About = () => {
                   </div>
                   <div>
                     <div className="text-sm text-muted-foreground">Email</div>
-                    <a href="mailto:hello@anvaya.energy" className="text-foreground hover:text-primary transition-colors">
-                      hello@anvaya.energy
+                    <a href="mailto:director@anvayaenertech.in" className="text-foreground hover:text-primary transition-colors">
+                      director@anvayaenertech.in
                     </a>
                   </div>
                 </div>
@@ -306,14 +305,16 @@ const About = () => {
 
                 <div className="flex items-center gap-4">
                   <a 
-                    href="#"
+                    href="https://www.linkedin.com/company/anvaya-enertech"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
                   >
                     <Linkedin className="w-5 h-5 text-primary" />
                   </a>
                   <div>
                     <div className="text-sm text-muted-foreground">LinkedIn</div>
-                    <a href="#" className="text-foreground hover:text-primary transition-colors">
+                    <a href="https://www.linkedin.com/company/anvaya-enertech" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-primary transition-colors">
                       Follow us
                     </a>
                   </div>
