@@ -9,6 +9,7 @@ import Markets from "./pages/Markets";
 import HowItWorks from "./pages/HowItWorks";
 import PilotProgram from "./pages/PilotProgram";
 import About from "./pages/About";
+ import SavingsAnalysis from "./pages/SavingsAnalysis";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/pilot-program" element={<PilotProgram />} />
           <Route path="/about" element={<About />} />
+           <Route path="/savings-analysis" element={<SavingsAnalysis />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
