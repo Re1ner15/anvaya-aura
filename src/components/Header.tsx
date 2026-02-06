@@ -8,7 +8,7 @@ const navItems = [
   { label: 'Product', href: '/product' },
   { label: 'Markets', href: '/markets' },
   { label: 'How it Works', href: '/how-it-works' },
-   { label: 'Savings Analysis', href: '/savings-analysis' },
+   
   { label: 'Pilot Program', href: '/pilot-program' },
   { label: 'About', href: '/about' },
 ];
@@ -32,11 +32,25 @@ const Header = () => {
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
               <Link to="/" className="flex items-center gap-3">
-                <img 
-                  src={logo} 
-                  alt="Anvaya EnerTech" 
-                  className="h-10 w-auto"
-                />
+                <div className="relative">
+                  <img 
+                    src={logo} 
+                    alt="Anvaya EnerTech" 
+                    className="h-10 w-auto relative z-10"
+                  />
+                  <span 
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary/30 pointer-events-none"
+                    style={{ animation: 'logo-ring 3s ease-out infinite' }}
+                  />
+                  <span 
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary/20 pointer-events-none"
+                    style={{ animation: 'logo-ring 3s ease-out infinite', animationDelay: '0.5s' }}
+                  />
+                  <span 
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary/10 pointer-events-none"
+                    style={{ animation: 'logo-ring 3s ease-out infinite', animationDelay: '1s' }}
+                  />
+                </div>
                 <div className="hidden sm:block">
                   <span className="text-lg font-semibold text-foreground">Anvaya</span>
                   <span className="text-lg font-light text-muted-foreground ml-1">EnerTech</span>

@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: 'What if we already have an energy management system?',
-    answer: 'Neev complements existing systems by adding AI-powered autonomous optimization. Our NILM technology provides granular insights that traditional systems miss, typically finding an additional 10-15% savings on top of existing measures.',
+    answer: 'Neev complements existing systems by adding AI-powered autonomous optimization. Our Advanced Monitoring technology provides granular insights that traditional systems miss, typically finding an additional 10-15% savings on top of existing measures.',
   },
   {
     question: 'Is there a minimum property size requirement?',

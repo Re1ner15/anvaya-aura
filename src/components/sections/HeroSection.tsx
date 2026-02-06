@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { AnimatedWords, Typewriter } from '@/components/animations/AnimatedText';
 import { Floating } from '@/components/animations/ScrollReveal';
 import ParticleBackground from '@/components/animations/ParticleBackground';
@@ -14,27 +14,9 @@ const HeroSection = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
 
-  // Mouse parallax
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const springConfig = { damping: 25, stiffness: 150 };
-  const x = useSpring(mouseX, springConfig);
-  const yMouse = useSpring(mouseY, springConfig);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      mouseX.set((clientX - innerWidth / 2) / 50);
-      mouseY.set((clientY - innerHeight / 2) / 50);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [mouseX, mouseY]);
 
   return (
     <section
@@ -110,7 +92,6 @@ const HeroSection = () => {
           {/* Subheadline with typewriter effect */}
           <motion.p
             className="text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto"
-            style={{ x, y: yMouse }}
           >
             <Typewriter
               text="Neev eliminates building energy waste through intelligent, real-time monitoring."
@@ -126,9 +107,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             transition={{ delay: 2.5, duration: 1 }}
           >
-            <span className="text-primary font-semibold">10-30% savings</span>
+            <span className="text-primary font-semibold">10-30% bill savings</span>
             <span className="text-muted-foreground"> with </span>
-            <span className="text-primary font-semibold">Fast deployment</span>
+            <span className="text-primary font-semibold">Rapid Deployment</span>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -155,12 +136,12 @@ const HeroSection = () => {
               </motion.span>
             </motion.a>
             <motion.a
-              href="/how-it-works"
+              href="/savings-analysis"
               className="btn-secondary"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Learn More
+              Analyse Bill Savings
             </motion.a>
           </motion.div>
 

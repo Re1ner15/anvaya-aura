@@ -8,7 +8,7 @@ const features = [
   {
     icon: Eye,
     title: 'Make Invisible Visible',
-    description: 'Our NILM technology sees every watt flowing through your building—identifying waste others miss.',
+    description: 'Our Advanced Monitoring technology sees every watt flowing through your building—identifying waste others miss.',
     gradient: 'from-primary to-primary-light',
   },
   {

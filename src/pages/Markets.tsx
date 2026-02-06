@@ -1,78 +1,18 @@
 import Layout from '@/components/layout/Layout';
 import ParticleBackground from '@/components/animations/ParticleBackground';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/animations/ScrollReveal';
+import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { Counter } from '@/components/animations/Counter';
 import { useState } from 'react';
+import OrbitGallery from '@/components/sections/OrbitGallery';
+import NotifyModal from '@/components/NotifyModal';
 import { 
-  Hotel, 
-  Building2, 
-  Factory, 
-  Home,
   CheckCircle2,
-  Clock,
+  ThermometerSun,
   Zap,
   Users,
-  ThermometerSun,
   BarChart3,
-  X
 } from 'lucide-react';
-
-const markets = [
-  {
-    id: 'hotels',
-    icon: Hotel,
-    title: 'Hotels & Hospitality',
-    status: 'available',
-    statusLabel: 'Available Now',
-    description: 'Autonomous energy optimization delivering 10-30% savings with zero guest comfort compromise. Launching February 2025.',
-    features: [
-      'HVAC optimization across all rooms',
-      'Peak demand management',
-      '24/7 autonomous operation',
-      'Guest comfort maintained at 100%',
-    ],
-  },
-  {
-    id: 'commercial',
-    icon: Building2,
-    title: 'Commercial Spaces',
-    status: 'coming-soon',
-    statusLabel: 'Coming Soon',
-    description: 'Office buildings, retail centers, and mixed-use properties.',
-    features: [
-      'Multi-tenant optimization',
-      'Smart scheduling',
-      'Occupancy-based control',
-    ],
-  },
-  {
-    id: 'industrial',
-    icon: Factory,
-    title: 'Industrial Facilities',
-    status: 'coming-soon',
-    statusLabel: 'Coming Soon',
-    description: 'Manufacturing plants, warehouses, and production facilities.',
-    features: [
-      'Production-aligned optimization',
-      'Heavy equipment monitoring',
-      'Shift-based scheduling',
-    ],
-  },
-  {
-    id: 'residential',
-    icon: Home,
-    title: 'Residential Buildings',
-    status: 'coming-soon',
-    statusLabel: 'Coming Soon',
-    description: 'Apartments, condos, and multi-family housing.',
-    features: [
-      'Common area optimization',
-      'Tenant comfort priority',
-      'Shared system management',
-    ],
-  },
-];
 
 const hotelBenefits = [
   { icon: ThermometerSun, title: 'HVAC Optimization', description: 'Smart control of heating, cooling, and ventilation across all rooms and common areas.' },
@@ -82,25 +22,10 @@ const hotelBenefits = [
 ];
 
 const Markets = () => {
-  const [showNotifyModal, setShowNotifyModal] = useState(false);
-  const [selectedMarket, setSelectedMarket] = useState('');
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleNotify = (marketId: string) => {
-    setSelectedMarket(marketId);
-    setShowNotifyModal(true);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setShowNotifyModal(false);
-      setSubmitted(false);
-      setEmail('');
-    }, 2000);
-  };
+  const [notifyModal, setNotifyModal] = useState<{ isOpen: boolean; marketName: string }>({
+    isOpen: false,
+    marketName: '',
+  });
 
   return (
     <Layout>
@@ -141,113 +66,12 @@ const Markets = () => {
         </div>
       </section>
 
-      {/* Markets Grid */}
+      {/* Markets - Orbit Gallery */}
       <section className="section-padding bg-secondary/30 relative overflow-hidden">
         <ParticleBackground particleColor="white" particleCount={15} className="opacity-30" />
         
         <div className="container-custom relative z-10">
-          <StaggerContainer className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {markets.map((market, index) => (
-              <StaggerItem key={market.id}>
-                <motion.div
-                  className={`relative p-8 rounded-2xl border-2 transition-all ${
-                    market.status === 'available'
-                      ? 'bg-white border-primary shadow-lg'
-                      : 'bg-white border-border opacity-70 grayscale-[50%]'
-                  }`}
-                  whileHover={{ 
-                    y: market.status === 'available' ? -12 : -8,
-                    scale: market.status === 'available' ? 1.02 : 1.01,
-                  }}
-                  animate={market.status === 'coming-soon' ? {
-                    scale: [1, 1.02, 1],
-                  } : {}}
-                  transition={market.status === 'coming-soon' ? {
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: index * 0.3,
-                  } : {}}
-                >
-                  {/* Status Badge */}
-                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-lg text-xs font-semibold mb-4 ${
-                    market.status === 'available'
-                      ? 'bg-gradient-to-r from-primary/20 to-primary-light/20 text-primary'
-                      : 'bg-muted text-muted-foreground'
-                  }`}>
-                    {market.status === 'available' && (
-                      <motion.span
-                        className="w-2 h-2 rounded-full bg-primary"
-                        animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      />
-                    )}
-                    {market.status === 'coming-soon' && <Clock className="w-3 h-3" />}
-                    {market.statusLabel}
-                  </div>
-
-                  {/* Icon */}
-                  <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${
-                    market.status === 'available' ? 'bg-primary/10' : 'bg-muted'
-                  }`}>
-                    <market.icon className={`w-8 h-8 ${
-                      market.status === 'available' ? 'text-primary' : 'text-muted-foreground'
-                    }`} />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-2xl font-bold text-foreground mb-2">{market.title}</h3>
-                  <p className="text-muted-foreground mb-6">{market.description}</p>
-
-                  {/* Features */}
-                  {market.features && (
-                    <ul className="space-y-2 mb-6">
-                      {market.features.slice(0, 3).map((feature, i) => (
-                        <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 className={`w-4 h-4 ${
-                            market.status === 'available' ? 'text-primary' : 'text-muted-foreground'
-                          }`} />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {/* CTA */}
-                  {market.status === 'available' ? (
-                    <motion.a
-                      href="#hotels-detail"
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      Learn More
-                      <span>→</span>
-                    </motion.a>
-                  ) : (
-                    <motion.button
-                      onClick={() => handleNotify(market.id)}
-                      className="inline-flex items-center gap-2 px-6 py-3 border-2 border-dashed border-primary/50 text-primary font-semibold rounded-xl hover:bg-primary/5 transition-colors"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      Notify Me
-                    </motion.button>
-                  )}
-
-                  {/* Coming Soon Overlay */}
-                  {market.status === 'coming-soon' && (
-                    <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                        animate={{ x: ['-100%', '200%'] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-                      />
-                    </div>
-                  )}
-                </motion.div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
+          <OrbitGallery onNotifyClick={(name) => setNotifyModal({ isOpen: true, marketName: name })} />
         </div>
       </section>
 
@@ -316,14 +140,14 @@ const Markets = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { value: 25, suffix: '%', label: 'Average Savings' },
-                { value: 30, suffix: ' min', label: 'Setup Time', prefix: '<' },
+                { value: 30, suffix: ' mins', label: 'Setup Time', prefix: '<' },
                 { value: 100, suffix: '%', label: 'Comfort Maintained' },
                 { value: 30, suffix: ' days', label: 'Time to Deploy', prefix: '<' },
               ].map((stat, i) => (
                 <div key={i} className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
                     {stat.prefix && <span>{stat.prefix}</span>}
-                    {!stat.prefix && <Counter end={stat.value} duration={2} />}
+                    <Counter end={stat.value} duration={2} />
                     {stat.suffix}
                   </div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
@@ -369,67 +193,11 @@ const Markets = () => {
       </section>
 
       {/* Notify Modal */}
-      <AnimatePresence>
-        {showNotifyModal && (
-          <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="absolute inset-0 bg-near-black/60 backdrop-blur-sm"
-              onClick={() => setShowNotifyModal(false)}
-            />
-            <motion.div
-              className="relative bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl"
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-            >
-              <button
-                onClick={() => setShowNotifyModal(false)}
-                className="absolute top-4 right-4 p-2 rounded-lg hover:bg-muted transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              {submitted ? (
-                <div className="text-center py-8">
-                  <CheckCircle2 className="w-16 h-16 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-2">You're on the list!</h3>
-                  <p className="text-muted-foreground">We'll notify you when this market becomes available.</p>
-                </div>
-              ) : (
-                <>
-                  <h3 className="text-xl font-bold mb-2">Get Notified</h3>
-                  <p className="text-muted-foreground mb-6">
-                    Be the first to know when Neev expands to {selectedMarket} properties.
-                  </p>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email"
-                      required
-                      className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                    />
-                    <motion.button
-                      type="submit"
-                      className="w-full px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      Notify Me
-                    </motion.button>
-                  </form>
-                </>
-              )}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <NotifyModal
+        isOpen={notifyModal.isOpen}
+        onClose={() => setNotifyModal({ isOpen: false, marketName: '' })}
+        marketName={notifyModal.marketName}
+      />
     </Layout>
   );
 };

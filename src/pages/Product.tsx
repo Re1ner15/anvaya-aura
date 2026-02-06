@@ -51,8 +51,8 @@ const features = [
 const techSteps = [
   {
     step: '01',
-    title: 'Non-Intrusive Load Monitoring',
-    description: 'NILM technology disaggregates total energy consumption into individual device-level usage with minimal setup.',
+    title: 'Advanced Monitoring',
+    description: 'Advanced Monitoring technology disaggregates total energy consumption into individual device-level usage with minimal setup.',
   },
   {
     step: '02',
@@ -150,7 +150,7 @@ const Product = () => {
               Our Technology
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Built on Agentic AI and NILM
+              Built on Advanced Monitoring + Agentic AI
             </h2>
           </ScrollReveal>
           
