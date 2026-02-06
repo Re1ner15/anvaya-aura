@@ -33,8 +33,8 @@ const steps = [
     number: '02',
     icon: Brain,
     title: 'AI Learns & Optimizes',
-    subtitle: 'Agentic AI + NILM',
-    description: 'Our platform combines Agentic AI for autonomous decision-making with NILM (Non-Intrusive Load Monitoring) to disaggregate energy consumption into device-level usage. The AI learns your building\'s unique patterns and identifies optimization opportunities.',
+    subtitle: 'Advanced Monitoring + Agentic AI',
+    description: 'Our platform combines Advanced Monitoring to disaggregate energy consumption into device-level usage with Agentic AI for autonomous decision-making. The AI learns your building\'s unique patterns and identifies optimization opportunities.',
     features: [
       'Device-level energy disaggregation',
       'Pattern recognition across seasons',
