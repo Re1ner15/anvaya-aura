@@ -92,7 +92,6 @@ const HeroSection = () => {
           {/* Subheadline with typewriter effect */}
           <motion.p
             className="text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto"
-            style={{ x, y: yMouse }}
           >
             <Typewriter
               text="Neev eliminates building energy waste through intelligent, real-time monitoring."
