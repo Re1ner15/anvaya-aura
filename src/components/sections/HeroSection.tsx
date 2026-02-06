@@ -107,9 +107,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             transition={{ delay: 2.5, duration: 1 }}
           >
-            <span className="text-primary font-semibold">10-30% savings</span>
+            <span className="text-primary font-semibold">10-30% bill savings</span>
             <span className="text-muted-foreground"> with </span>
-            <span className="text-primary font-semibold">Fast deployment</span>
+            <span className="text-primary font-semibold">Rapid Deployment</span>
           </motion.p>
 
           {/* CTA Buttons */}
