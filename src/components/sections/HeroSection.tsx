@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import { AnimatedWords, Typewriter } from '@/components/animations/AnimatedText';
 import { Floating } from '@/components/animations/ScrollReveal';
 import ParticleBackground from '@/components/animations/ParticleBackground';
