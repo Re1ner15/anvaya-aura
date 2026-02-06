@@ -150,7 +150,7 @@ const Product = () => {
               Our Technology
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Built on Agentic AI and NILM
+              Built on Advanced Monitoring + Agentic AI
             </h2>
           </ScrollReveal>
           

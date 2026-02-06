@@ -199,10 +199,10 @@ const HowItWorks = () => {
               Technology
             </div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Agentic AI + NILM: The Brain Behind Neev
+              Advanced Monitoring + Agentic AI: The Brain Behind Neev
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Agentic AI enables autonomous decision-making 24/7, while NILM technology disaggregates your building's energy consumption into device-level usage—making the invisible visible.
+              Advanced Monitoring disaggregates your building's energy consumption into device-level usage—making the invisible visible, while Agentic AI enables autonomous decision-making 24/7.
             </p>
           </ScrollReveal>
 

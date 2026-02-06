@@ -3,12 +3,12 @@ import ParticleBackground from '@/components/animations/ParticleBackground';
 import { motion } from 'framer-motion';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '@/components/animations/ScrollReveal';
 import { useState } from 'react';
+import NotifyModal from '@/components/NotifyModal';
 import { 
   Eye, 
   Zap,
   Users,
   Mail,
-  Phone,
   MapPin,
   Linkedin,
   Send,
@@ -17,7 +17,8 @@ import {
   Building2,
   Hotel,
   Factory,
-  Home
+  Home,
+  Bell
 } from 'lucide-react';
 
 const values = [
@@ -43,7 +44,7 @@ const team = [
     name: 'Ranjit',
     role: 'Co-founder',
     focus: '',
-    description: 'Leading the development of Neev AI and NILM technology stack.',
+    description: 'Leading the development of Neev AI and Advanced Monitoring technology stack.',
   },
   {
     name: 'Aditya Joshi',
@@ -60,6 +61,10 @@ const About = () => {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [notifyModal, setNotifyModal] = useState<{ isOpen: boolean; marketName: string }>({
+    isOpen: false,
+    marketName: '',
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -133,25 +138,37 @@ const About = () => {
             <ScrollReveal direction="right">
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Hotel, label: 'Hotels', status: 'Now' },
-                  { icon: Building2, label: 'Commercial', status: 'Soon' },
-                  { icon: Factory, label: 'Industrial', status: 'Soon' },
-                  { icon: Home, label: 'Residential', status: 'Soon' },
+                  { icon: Hotel, label: 'Hotels', status: 'Now', isAvailable: true },
+                  { icon: Building2, label: 'Commercial', status: 'Coming Soon', isAvailable: false },
+                  { icon: Factory, label: 'Industrial', status: 'Coming Soon', isAvailable: false },
+                  { icon: Home, label: 'Residential', status: 'Coming Soon', isAvailable: false },
                 ].map((item, i) => (
                   <motion.div
                     key={i}
-                    className={`p-6 rounded-xl text-center ${
-                      i === 0 ? 'bg-primary/10 border-2 border-primary/30' : 'bg-muted border border-border'
+                    className={`p-6 rounded-xl text-center cursor-pointer transition-all ${
+                      item.isAvailable 
+                        ? 'bg-primary/10 border-2 border-primary/30' 
+                        : 'bg-card border border-border hover:border-primary/20'
                     }`}
                     whileHover={{ y: -4 }}
+                    onClick={() => {
+                      if (!item.isAvailable) {
+                        setNotifyModal({ isOpen: true, marketName: item.label });
+                      }
+                    }}
                   >
                     <item.icon className={`w-8 h-8 mx-auto mb-3 ${
-                      i === 0 ? 'text-primary' : 'text-muted-foreground'
+                      item.isAvailable ? 'text-primary' : 'text-muted-foreground'
                     }`} />
                     <div className="font-semibold text-foreground">{item.label}</div>
                     <div className={`text-sm ${
-                      i === 0 ? 'text-primary' : 'text-muted-foreground'
+                      item.isAvailable ? 'text-primary font-medium' : 'text-muted-foreground'
                     }`}>{item.status}</div>
+                    {!item.isAvailable && (
+                      <div className="mt-2 inline-flex items-center gap-1 text-xs text-primary opacity-70">
+                        <Bell className="w-3 h-3" /> Notify Me
+                      </div>
+                    )}
                   </motion.div>
                 ))}
               </div>
@@ -201,10 +218,10 @@ const About = () => {
               Our Technology
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Built on Agentic AI and NILM
+              Built on Advanced Monitoring + Agentic AI
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our platform combines two cutting-edge technologies: Agentic AI for autonomous decision-making that acts on your behalf 24/7, and NILM (Non-Intrusive Load Monitoring) for advanced energy disaggregation—making the invisible visible.
+              Our platform combines two cutting-edge technologies: Advanced Monitoring for energy disaggregation—making the invisible visible, and Agentic AI for autonomous decision-making that acts on your behalf 24/7.
             </p>
           </ScrollReveal>
 
@@ -385,6 +402,13 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Notify Modal */}
+      <NotifyModal
+        isOpen={notifyModal.isOpen}
+        onClose={() => setNotifyModal({ isOpen: false, marketName: '' })}
+        marketName={notifyModal.marketName}
+      />
     </Layout>
   );
 };
