@@ -58,7 +58,7 @@ const OrbitGallery = ({ onNotifyClick }: OrbitGalleryProps) => {
   const animFrameRef = useRef<number>(0);
   const lastTimeRef = useRef<number>(0);
 
-  const RADIUS = 540;
+  const RADIUS = 400;
   const CARD_COUNT = markets.length;
   const ANGLE_STEP = 360 / CARD_COUNT;
 
@@ -138,16 +138,15 @@ const OrbitGallery = ({ onNotifyClick }: OrbitGalleryProps) => {
     const angle = rotation + index * ANGLE_STEP;
     const rad = (angle * Math.PI) / 180;
     
-    // Calculate depth for opacity/scale
+    // Calculate depth for opacity/scale — tighter curve for 4 items
     const cosVal = Math.cos(rad);
     const zIndex = Math.round(cosVal * 100) + 100;
     const opacity = market.status === 'available'
-      ? 0.55 + cosVal * 0.45
-      : 0.3 + cosVal * 0.35;
+      ? 0.6 + cosVal * 0.4
+      : 0.4 + cosVal * 0.35;
     const scale = market.status === 'available'
-      ? 0.78 + cosVal * 0.22
-      : 0.72 + cosVal * 0.18;
-
+      ? 0.82 + cosVal * 0.18
+      : 0.76 + cosVal * 0.16;
     const Icon = market.icon;
     const isAvailable = market.status === 'available';
 
@@ -163,7 +162,7 @@ const OrbitGallery = ({ onNotifyClick }: OrbitGalleryProps) => {
         }}
       >
         <div
-          className={`w-[260px] p-6 rounded-2xl border text-center transition-all ${
+          className={`w-[224px] p-5 rounded-2xl border text-center transition-all ${
             isAvailable
               ? 'bg-card border-primary/30 shadow-lg scale-105'
               : 'bg-card/80 border-border/50 shadow-md grayscale-[30%]'
@@ -230,7 +229,7 @@ const OrbitGallery = ({ onNotifyClick }: OrbitGalleryProps) => {
       <div
         ref={containerRef}
         className="hidden md:block relative mx-auto"
-        style={{ height: '480px', perspective: '1200px' }}
+        style={{ height: '400px', perspective: '1000px' }}
       >
         <div
           className="absolute inset-0 flex items-center justify-center"
