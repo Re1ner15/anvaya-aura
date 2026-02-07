@@ -12,13 +12,13 @@ const MarketsSection = () => {
   });
 
   return (
-    <section id="markets" className="section-padding bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
+    <section id="markets" className="py-10 md:py-16 bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
       <ParticleBackground color="white" density="medium" />
       <div className="absolute inset-0 bg-mesh opacity-40" />
 
       <div className="container-custom relative z-10">
         {/* Section header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <ScrollReveal>
             <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
               Markets We Serve
