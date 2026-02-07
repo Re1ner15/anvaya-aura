@@ -62,6 +62,10 @@ const OrbitGallery = ({ onNotifyClick }: OrbitGalleryProps) => {
   const CARD_COUNT = markets.length;
   const ANGLE_STEP = 360 / CARD_COUNT;
 
+  // Track accumulated scroll rotation for lock/release
+  const accumulatedRef = useRef(0);
+  const isLockedRef = useRef(false);
+
   // Auto-rotate loop
   useEffect(() => {
     if (!isAutoRotating) return;
@@ -69,7 +73,7 @@ const OrbitGallery = ({ onNotifyClick }: OrbitGalleryProps) => {
     const animate = (time: number) => {
       if (lastTimeRef.current) {
         const delta = time - lastTimeRef.current;
-        setRotation(prev => prev + delta * 0.008); // slow rotation
+        setRotation(prev => prev + delta * 0.008);
       }
       lastTimeRef.current = time;
       animFrameRef.current = requestAnimationFrame(animate);
@@ -87,20 +91,32 @@ const OrbitGallery = ({ onNotifyClick }: OrbitGalleryProps) => {
     }, 2500);
   }, []);
 
-  // Scroll-driven rotation
+  // Scroll-driven rotation with 360° lock
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
     const handleWheel = (e: WheelEvent) => {
-      // Only capture horizontal-like scroll intent
       const absDeltaY = Math.abs(e.deltaY);
       if (absDeltaY < 4) return;
-      
+
+      if (!isLockedRef.current) {
+        isLockedRef.current = true;
+        accumulatedRef.current = 0;
+      }
+
       e.preventDefault();
       setIsAutoRotating(false);
-      setRotation(prev => prev + e.deltaY * 0.15);
+
+      const rotDelta = e.deltaY * 0.15;
+      accumulatedRef.current += Math.abs(rotDelta);
+      setRotation(prev => prev + rotDelta);
       resumeAutoRotate();
+
+      if (accumulatedRef.current >= 360) {
+        isLockedRef.current = false;
+        accumulatedRef.current = 0;
+      }
     };
 
     el.addEventListener('wheel', handleWheel, { passive: false });
