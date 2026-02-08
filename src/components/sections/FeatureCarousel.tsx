@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plug, Brain, TrendingUp } from 'lucide-react';
+import stepConnectImg from '@/assets/step-connect.jpg';
+import stepAiImg from '@/assets/step-ai-learns.jpg';
+import stepSavingsImg from '@/assets/step-savings.jpg';
 
 const steps = [
   {
@@ -9,6 +12,7 @@ const steps = [
     title: 'Connect in Minutes',
     description: 'Non-invasive installation on existing infrastructure. No rewiring. No downtime. Live in under 30 days.',
     details: ['Clamp-on sensors', 'WiFi connectivity', 'Zero disruption'],
+    image: stepConnectImg,
   },
   {
     number: '02',
@@ -16,6 +20,7 @@ const steps = [
     title: 'AI Learns & Optimizes',
     description: 'Advanced Monitoring technology disaggregates and tracks every load. Our AI builds a digital twin and identifies optimization opportunities.',
     details: ['Load disaggregation', 'Pattern recognition', 'Anomaly detection'],
+    image: stepAiImg,
   },
   {
     number: '03',
@@ -23,6 +28,7 @@ const steps = [
     title: 'Savings Compound',
     description: 'Autonomous actions eliminate waste 24/7. Watch savings grow month over month with detailed analytics.',
     details: ['Real-time actions', 'Continuous learning', 'Monthly reports'],
+    image: stepSavingsImg,
   },
 ];
 
@@ -158,28 +164,25 @@ const FeatureCarousel = () => {
           </div>
 
           <motion.div
-            className="relative p-8 rounded-2xl bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10"
+            className="relative rounded-2xl overflow-hidden border border-primary/10"
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="text-center">
-              <motion.div
-                className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-[var(--shadow-teal)]"
-                animate={{ rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              >
-                <StepIcon className="w-10 h-10 text-white" />
-              </motion.div>
-              <h4 className="text-lg font-semibold text-foreground mb-2">
+            <img
+              src={steps[activeStep].image}
+              alt={steps[activeStep].title}
+              className="w-full h-64 md:h-80 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 text-center">
+              <h4 className="text-lg font-semibold text-foreground mb-1">
                 {steps[activeStep].title}
               </h4>
               <p className="text-sm text-muted-foreground">
                 Step {activeStep + 1} of {steps.length}
               </p>
             </div>
-            <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-primary/10 blur-xl" />
-            <div className="absolute bottom-4 left-4 w-24 h-24 rounded-full bg-accent/10 blur-xl" />
           </motion.div>
         </motion.div>
       </AnimatePresence>

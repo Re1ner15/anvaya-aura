@@ -17,7 +17,7 @@ const HowItWorksSection = () => {
               Simple Process
             </span>
           </ScrollReveal>
-          <h2 className="text-display-mobile md:text-display font-bold text-foreground mb-4 leading-tight">
+          <h2 className="text-display-mobile md:text-display font-bold text-foreground mb-4 leading-none">
             <GradientWipe duration={1.2}>
               <span className="text-gradient">From Invisible Waste</span>
             </GradientWipe>
