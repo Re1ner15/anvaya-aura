@@ -41,16 +41,16 @@ const values = [
 
 const team = [
   {
-    name: 'Ranjit',
+    name: 'Ranjit Jail',
     role: 'Co-founder',
     focus: '',
-    description: 'Leading the development of Neev AI and Advanced Monitoring technology stack.',
+    description: 'Leading Product Development and Operations at Anvaya',
   },
   {
     name: 'Aditya Joshi',
     role: 'Co-founder',
     focus: '',
-    description: 'Driving business development and partnerships across the building energy sector.',
+    description: 'Leading Product Refinement and Business Development at Anvaya',
   },
 ];
 
@@ -267,7 +267,7 @@ const About = () => {
             {team.map((member, index) => (
               <ScrollReveal key={index} delay={index * 0.15}>
                 <motion.div
-                  className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm"
+                  className="p-8 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm h-full"
                   whileHover={{ y: -8, borderColor: 'rgba(0, 168, 150, 0.3)' }}
                 >
                   <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
@@ -299,14 +299,15 @@ const About = () => {
               
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <a
+                    href="mailto:director@anvayaenertech.in"
+                    className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors"
+                  >
                     <Mail className="w-5 h-5 text-primary" />
-                  </div>
+                  </a>
                   <div>
                     <div className="text-sm text-muted-foreground">Email</div>
-                    <a href="mailto:director@anvayaenertech.in" className="text-foreground hover:text-primary transition-colors">
-                      director@anvayaenertech.in
-                    </a>
+                    <span className="text-foreground">Reach out to us</span>
                   </div>
                 </div>
                 

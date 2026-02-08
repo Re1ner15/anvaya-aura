@@ -157,7 +157,8 @@ const OrbitGallery = ({ onNotifyClick }: OrbitGalleryProps) => {
     // Calculate depth for opacity/scale — tighter curve for 4 items
     const cosVal = Math.cos(rad);
     const zIndex = Math.round(cosVal * 100) + 100;
-    const opacity = market.status === 'available'
+    const opacity = 1;
+    const _depthOpacity = market.status === 'available'
       ? 0.65 + cosVal * 0.35
       : 0.6 + cosVal * 0.25;
     const scale = market.status === 'available'
@@ -254,15 +255,6 @@ const OrbitGallery = ({ onNotifyClick }: OrbitGalleryProps) => {
           {markets.map((m, i) => renderCard(m, i))}
         </div>
 
-        {/* Scroll hint */}
-        <motion.div
-          className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-muted-foreground/60 flex items-center gap-1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-        >
-          <span>Scroll to rotate</span>
-        </motion.div>
       </div>
 
       {/* Mobile vertical stack */}
