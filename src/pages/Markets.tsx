@@ -83,7 +83,7 @@ const Markets = () => {
           <ScrollReveal className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
               <CheckCircle2 className="w-4 h-4" />
-              Available Now - Launching February 2025
+              Available Now - Launching March 2025
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Autonomous Energy Management for Hotels

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Plug, Brain, TrendingUp } from 'lucide-react';
 import stepConnectImg from '@/assets/step-connect.jpg';
 import stepAiImg from '@/assets/step-ai-learns.jpg';
-import stepSavingsImg from '@/assets/step-savings.jpg';
+import stepSavingsImg from '@/assets/step-savings-new.jpg';
 
 const steps = [
   {

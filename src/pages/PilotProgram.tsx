@@ -39,10 +39,10 @@ const benefits = [
 ];
 
 const timeline = [
-  { date: 'January 2025', event: 'Applications Open', status: 'current' },
-  { date: 'February 2025', event: 'Installation Begins', status: 'upcoming' },
-  { date: 'March - July 2025', event: 'Active Optimization', status: 'upcoming' },
-  { date: 'August 2025', event: 'Results Review', status: 'upcoming' },
+  { date: 'March 2026', event: 'Applications Open', status: 'current' },
+  { date: 'April 2026', event: 'Installation Begins', status: 'upcoming' },
+  { date: 'April – August 2026', event: 'Active Optimization', status: 'upcoming' },
+  { date: 'September 2026', event: 'Results Review', status: 'upcoming' },
 ];
 
 const requirements = [
@@ -108,7 +108,7 @@ const PilotProgram = () => {
               transition={{ delay: 0.2 }}
             >
               <Rocket className="w-4 h-4" />
-              Pilot Program - February 2025
+              Pilot Program - March 2026
             </motion.div>
             
             <motion.h1
