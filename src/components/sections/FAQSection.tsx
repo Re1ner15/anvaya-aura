@@ -31,7 +31,7 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section-padding bg-secondary/30 relative overflow-hidden">
+    <section className="py-12 md:py-16 px-4 md:px-8 bg-secondary/30 relative overflow-hidden">
       {/* Particle background */}
       <ParticleBackground color="teal" density="low" />
       

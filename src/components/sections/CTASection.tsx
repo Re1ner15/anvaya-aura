@@ -5,7 +5,7 @@ import ParticleBackground from '@/components/animations/ParticleBackground';
 
 const CTASection = () => {
   return (
-    <section id="demo" className="section-padding relative overflow-hidden">
+    <section id="demo" className="py-12 md:py-16 px-4 md:px-8 relative overflow-hidden">
       {/* Teal gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-accent" />
       

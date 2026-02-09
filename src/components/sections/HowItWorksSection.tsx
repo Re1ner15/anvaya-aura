@@ -5,24 +5,24 @@ import FeatureCarousel from '@/components/sections/FeatureCarousel';
 
 const HowItWorksSection = () => {
   return (
-    <section id="how-it-works" className="section-padding bg-background relative overflow-hidden">
+    <section id="how-it-works" className="py-12 md:py-16 px-4 md:px-8 bg-background relative overflow-hidden">
       <ParticleBackground color="teal" density="low" />
       <div className="absolute inset-0 bg-mesh opacity-30" />
 
       <div className="container-custom relative z-10">
         {/* Section header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <ScrollReveal>
-            <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
+            <span className="inline-block px-4 py-1.5 mb-3 text-sm font-medium text-primary bg-primary/10 rounded-full">
               Simple Process
             </span>
           </ScrollReveal>
-          <h2 className="text-display-mobile md:text-display font-bold text-foreground mb-4 leading-tight">
+          <h2 className="text-display-mobile md:text-display font-bold text-foreground leading-tight">
             <GradientWipe duration={1.2}>
               <span className="text-gradient block">From Invisible Waste</span>
             </GradientWipe>
             <GradientWipe delay={0.3} duration={1.2}>
-              <span className="block -mt-2 md:-mt-3">to Autonomous Savings</span>
+              <span className="block -mt-3 md:-mt-4">to Autonomous Savings</span>
             </GradientWipe>
           </h2>
         </div>

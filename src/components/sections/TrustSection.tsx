@@ -12,7 +12,7 @@ const buildingTypes = [
 
 const TrustSection = () => {
   return (
-    <section id="about" className="section-padding bg-background relative overflow-hidden">
+    <section id="about" className="py-12 md:py-16 px-4 md:px-8 bg-background relative overflow-hidden">
       {/* Particle background */}
       <ParticleBackground color="teal" density="low" />
       

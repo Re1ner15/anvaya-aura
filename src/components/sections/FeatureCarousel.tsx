@@ -68,7 +68,7 @@ const FeatureCarousel = () => {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Step tabs */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-8">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-6">
         {steps.map((step, index) => {
           const Icon = step.icon;
           return (
@@ -103,7 +103,7 @@ const FeatureCarousel = () => {
       </div>
 
       {/* Progress bars */}
-      <div className="flex gap-2 mb-8">
+      <div className="flex gap-2 mb-6">
         {steps.map((_, index) => (
           <div key={index} className="flex-1 h-1 rounded-full bg-muted overflow-hidden">
             <motion.div
