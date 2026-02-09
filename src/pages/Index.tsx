@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import HowItWorksSection from '@/components/sections/HowItWorksSection';
 import DashboardSection from '@/components/sections/DashboardSection';
-import MarketsSection from '@/components/sections/MarketsSection';
+import ScrollXMarkets from '@/components/sections/ScrollXMarkets';
 import TrustSection from '@/components/sections/TrustSection';
 import AboutSection from '@/components/sections/AboutSection';
 import TeamSection from '@/components/sections/TeamSection';
@@ -34,7 +34,7 @@ const Index = () => {
         <HeroSection />
         <DashboardSection />
         <HowItWorksSection />
-        <MarketsSection />
+        <ScrollXMarkets />
         <TrustSection />
         <AboutSection />
         <TeamSection />
