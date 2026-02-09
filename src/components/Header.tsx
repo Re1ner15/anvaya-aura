@@ -4,14 +4,7 @@ import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '@/assets/anvaya-logo.png';
 
-const navItems = [
-  { label: 'Product', href: '/product' },
-  { label: 'Markets', href: '/markets' },
-  { label: 'How it Works', href: '/how-it-works' },
-   
-  { label: 'Pilot Program', href: '/pilot-program' },
-  { label: 'About', href: '/about' },
-];
+const navItems: { label: string; href: string }[] = [];
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -85,12 +78,17 @@ const Header = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Link
-                  to="/about#contact"
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('contact');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   className="hidden sm:inline-flex px-5 py-2.5 text-sm font-medium text-primary border border-primary/20 rounded-lg hover:bg-primary/5 transition-all"
                 >
                   Contact
-                </Link>
+                </button>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -169,13 +167,18 @@ const Header = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.35 }}
                 >
-                  <Link
-                    to="/about#contact"
-                    className="block px-4 py-3 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-colors font-medium"
-                    onClick={() => setMobileMenuOpen(false)}
+                  <button
+                    className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:bg-primary/10 hover:text-primary transition-colors font-medium"
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      setTimeout(() => {
+                        const el = document.getElementById('contact');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }, 300);
+                    }}
                   >
                     Contact
-                  </Link>
+                  </button>
                 </motion.div>
               </div>
             </motion.nav>

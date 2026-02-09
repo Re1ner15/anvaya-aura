@@ -1,10 +1,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { AnimatedWords, Typewriter } from '@/components/animations/AnimatedText';
-import { Floating } from '@/components/animations/ScrollReveal';
 import ParticleBackground from '@/components/animations/ParticleBackground';
 import { ArrowRight, CheckCircle } from 'lucide-react';
-import dashboardImage from '@/assets/dashboard.png';
 
 const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -17,42 +15,23 @@ const HeroSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 1.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
 
-
   return (
     <section
       ref={containerRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-secondary/30"
     >
-      {/* Animated particle background */}
       <ParticleBackground color="teal" density="medium" />
-      
-      {/* Animated background mesh */}
       <div className="absolute inset-0 bg-mesh opacity-60" />
-      
-      {/* Animated gradient orbs */}
+
       <motion.div
         className="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-primary/10 blur-3xl"
-        animate={{
-          x: [0, 50, 0],
-          y: [0, 30, 0],
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
+        animate={{ x: [0, 50, 0], y: [0, 30, 0] }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
         className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full bg-accent/10 blur-3xl"
-        animate={{
-          x: [0, -50, 0],
-          y: [0, -30, 0],
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
+        animate={{ x: [0, -50, 0], y: [0, -30, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       <motion.div
@@ -60,7 +39,6 @@ const HeroSection = () => {
         className="relative z-10 container-custom px-4 pt-24 pb-16"
       >
         <div className="max-w-5xl mx-auto text-center">
-          {/* Badge */}
           <motion.div
             className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full bg-primary/10 border border-primary/20"
             initial={{ opacity: 0, y: -20 }}
@@ -73,13 +51,12 @@ const HeroSection = () => {
             </span>
           </motion.div>
 
-          {/* Main headline with word-by-word animation */}
           <h1 className="text-hero-mobile md:text-hero font-bold text-foreground mb-4">
             <AnimatedWords delay={0.3} staggerDelay={0.1}>
               The Future of Energy is
             </AnimatedWords>
             <br />
-            <motion.span 
+            <motion.span
               className="inline-block bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent drop-shadow-[0_4px_12px_rgba(0,168,150,0.4)]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,10 +66,7 @@ const HeroSection = () => {
             </motion.span>
           </h1>
 
-          {/* Subheadline with typewriter effect */}
-          <motion.p
-            className="text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto"
-          >
+          <motion.p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto">
             <Typewriter
               text="Neev eliminates building energy waste through intelligent, real-time monitoring."
               delay={1.8}
@@ -107,12 +81,13 @@ const HeroSection = () => {
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             transition={{ delay: 2.5, duration: 1 }}
           >
-            <span className="text-primary font-semibold">10-30% bill savings</span>
-            <span className="text-muted-foreground"> with </span>
-            <span className="text-primary font-semibold">Rapid Deployment</span>
+            <span className="text-primary font-semibold">10–30% energy savings</span>
+            <span className="text-muted-foreground"> · </span>
+            <span className="text-primary font-semibold">Zero disruption</span>
+            <span className="text-muted-foreground"> · </span>
+            <span className="text-primary font-semibold">Fully autonomous</span>
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
             className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8"
             initial={{ opacity: 0, y: 30 }}
@@ -135,19 +110,21 @@ const HeroSection = () => {
                 <ArrowRight className="w-5 h-5" />
               </motion.span>
             </motion.a>
-            <motion.a
-              href="/savings-analysis"
+            <motion.button
+              onClick={() => {
+                const el = document.getElementById('how-it-works');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="btn-secondary"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Analyse Bill Savings
-            </motion.a>
+              Learn More
+            </motion.button>
           </motion.div>
 
-          {/* Trust badge */}
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-12"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 3.2, duration: 0.5 }}
@@ -157,31 +134,9 @@ const HeroSection = () => {
               Pilot Program Launching March 2026
             </span>
           </motion.div>
-
-          {/* Floating dashboard mockup with real image - 30% larger */}
-          <Floating duration={8} distance={10}>
-            <motion.div
-              className="relative mx-auto max-w-5xl"
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 3.5, duration: 1 }}
-            >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50">
-                <img 
-                  src={dashboardImage} 
-                  alt="Neev Energy Dashboard showing real-time building energy consumption and savings"
-                  className="w-full h-auto"
-                />
-              </div>
-
-              {/* Glow effect */}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl scale-110 opacity-40" />
-            </motion.div>
-          </Floating>
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-6 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0, y: -10 }}
