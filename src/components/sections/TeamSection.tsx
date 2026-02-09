@@ -18,7 +18,7 @@ const team = [
 
 const TeamSection = () => {
   return (
-    <section className="section-padding bg-near-black text-white relative overflow-hidden">
+    <section className="py-12 md:py-16 px-4 md:px-8 bg-near-black text-white relative overflow-hidden">
       <ParticleBackground color="teal" density="low" />
 
       <div className="container-custom relative z-10">

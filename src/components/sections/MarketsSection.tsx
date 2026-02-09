@@ -12,7 +12,7 @@ const MarketsSection = () => {
   });
 
   return (
-    <section id="markets" className="py-10 md:py-16 bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
+    <section id="markets" className="py-12 md:py-16 px-4 md:px-8 bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
       <ParticleBackground color="white" density="medium" />
       <div className="absolute inset-0 bg-mesh opacity-40" />
 
