@@ -7,13 +7,18 @@ import ParticleBackground from '@/components/animations/ParticleBackground';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-near-black text-white/70 py-16 relative overflow-hidden">
       <ParticleBackground particleColor="teal" particleCount={10} className="opacity-20" />
       
       <div className="container-custom px-4 relative z-10">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-2">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
+          <div className="md:col-span-1">
             <motion.div whileHover={{ scale: 1.02 }}>
               <Link to="/" className="flex items-center gap-3 mb-4">
                 <img src={logo} alt="Anvaya EnerTech" className="h-10 w-auto" />
@@ -51,18 +56,23 @@ const Footer = () => {
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-3">
               {[
-                { label: 'How it Works', href: '/how-it-works' },
-                { label: 'Features', href: '/product' },
-                { label: 'Markets', href: '/markets' },
+                { label: 'How it Works', action: () => scrollTo('how-it-works') },
+                { label: 'Markets', action: () => scrollTo('markets') },
                 { label: 'Pilot Program', href: '/pilot-program' },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link
-                    to={item.href}
-                    className="text-white/50 hover:text-primary transition-colors"
-                  >
-                    {item.label}
-                  </Link>
+                  {'href' in item && item.href ? (
+                    <Link to={item.href} className="text-white/50 hover:text-primary transition-colors">
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={item.action}
+                      className="text-white/50 hover:text-primary transition-colors"
+                    >
+                      {item.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -71,19 +81,14 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Company</h4>
             <ul className="space-y-3">
-              {[
-                { label: 'About', href: '/about' },
-                { label: 'Contact', href: '/about#contact' },
-              ].map((item) => (
-                <li key={item.label}>
-                  <Link
-                    to={item.href}
-                    className="text-white/50 hover:text-primary transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <button
+                  onClick={() => scrollTo('contact')}
+                  className="text-white/50 hover:text-primary transition-colors"
+                >
+                  Contact
+                </button>
+              </li>
               <li>
                 <a
                   href="mailto:director@anvayaenertech.in"
