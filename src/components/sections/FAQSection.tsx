@@ -128,12 +128,17 @@ const FAQSection = () => {
                 Still have questions?
               </p>
               <motion.a
-                href="#contact"
+                href="/about#contact"
                 onClick={(e) => {
                   e.preventDefault();
-                  const el = document.getElementById('contact');
-                  if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
+                  const currentPath = window.location.pathname;
+                  if (currentPath === '/about') {
+                    const el = document.getElementById('contact');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  } else {
+                    window.location.href = '/about#contact';
                   }
                 }}
                 className="inline-flex items-center gap-2 text-primary font-medium hover:underline cursor-pointer"

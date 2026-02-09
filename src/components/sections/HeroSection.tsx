@@ -14,7 +14,7 @@ const HeroSection = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.95], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 1.2], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
 
 
