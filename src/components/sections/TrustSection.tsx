@@ -50,7 +50,7 @@ const TrustSection = () => {
           </h2>
           <ScrollReveal delay={0.2}>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Starting with hotels in February 2025, expanding across commercial, industrial, and residential sectors.
+              Starting with hotels in March 2025, expanding across commercial, industrial, and residential sectors.
             </p>
           </ScrollReveal>
         </div>
@@ -94,7 +94,7 @@ const TrustSection = () => {
                 transition={{ duration: 2, repeat: Infinity }}
               />
               <span className="text-lg font-semibold text-foreground">
-                Pilot Program Launching February 2025
+                Pilot Program Launching March 2025
               </span>
             </div>
           </motion.div>

@@ -128,8 +128,15 @@ const FAQSection = () => {
                 Still have questions?
               </p>
               <motion.a
-                href="mailto:director@anvayaenertech.in"
-                className="inline-flex items-center gap-2 text-primary font-medium hover:underline"
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById('contact');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="inline-flex items-center gap-2 text-primary font-medium hover:underline cursor-pointer"
                 whileHover={{ x: 5 }}
               >
                 Contact us →

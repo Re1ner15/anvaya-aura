@@ -17,13 +17,12 @@ const HowItWorksSection = () => {
               Simple Process
             </span>
           </ScrollReveal>
-          <h2 className="text-display-mobile md:text-display font-bold text-foreground mb-4 leading-none">
+          <h2 className="text-display-mobile md:text-display font-bold text-foreground mb-4 leading-none space-y-0">
             <GradientWipe duration={1.2}>
-              <span className="text-gradient">From Invisible Waste</span>
+              <span className="text-gradient block">From Invisible Waste</span>
             </GradientWipe>
-            <br />
             <GradientWipe delay={0.3} duration={1.2}>
-              <span>to Autonomous Savings</span>
+              <span className="block -mt-1 md:-mt-2">to Autonomous Savings</span>
             </GradientWipe>
           </h2>
         </div>

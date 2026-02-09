@@ -14,7 +14,7 @@ const HeroSection = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.95], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95]);
 
 
@@ -154,7 +154,7 @@ const HeroSection = () => {
           >
             <CheckCircle className="w-4 h-4 text-primary" />
             <span className="text-sm text-muted-foreground">
-              Pilot Program Launching February 2025
+              Pilot Program Launching March 2026
             </span>
           </motion.div>
 
