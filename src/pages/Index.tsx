@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '@/components/Header';
 import HeroSection from '@/components/sections/HeroSection';
-import HowItWorksSection from '@/components/sections/HowItWorksSection';
+import HowItWorksCarousel from '@/components/sections/HowItWorksCarousel';
 import DashboardSection from '@/components/sections/DashboardSection';
 import ScrollXMarkets from '@/components/sections/ScrollXMarkets';
 import TrustSection from '@/components/sections/TrustSection';
@@ -33,7 +33,7 @@ const Index = () => {
       <main>
         <HeroSection />
         <DashboardSection />
-        <HowItWorksSection />
+        <HowItWorksCarousel />
         <ScrollXMarkets />
         <TrustSection />
         <AboutSection />
