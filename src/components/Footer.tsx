@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/anvaya-logo.png';
-import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import ParticleBackground from '@/components/animations/ParticleBackground';
 
 const Footer = () => {
@@ -34,7 +34,6 @@ const Footer = () => {
             <div className="flex items-center gap-4">
               {[
                 { icon: Linkedin, href: 'https://www.linkedin.com/company/anvaya-enertech' },
-                { icon: Twitter, href: '#' },
                 { icon: Mail, href: 'mailto:director@anvayaenertech.in' },
               ].map(({ icon: Icon, href }, index) => (
                 <motion.a
@@ -94,7 +93,7 @@ const Footer = () => {
                   href="mailto:director@anvayaenertech.in"
                   className="text-white/50 hover:text-primary transition-colors"
                 >
-                  director@anvayaenertech.in
+                  Email
                 </a>
               </li>
               <li>
