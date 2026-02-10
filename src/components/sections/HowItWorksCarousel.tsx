@@ -51,12 +51,12 @@ const HowItWorksCarousel = () => {
               Simple Process
             </span>
           </ScrollReveal>
-          <h2 className="text-display-mobile md:text-display font-bold text-foreground leading-tight">
+          <h2 className="text-display-mobile md:text-display font-bold text-foreground leading-normal">
             <GradientWipe duration={1.2}>
               <span className="text-gradient block">From Invisible Waste</span>
             </GradientWipe>
             <GradientWipe delay={0.3} duration={1.2}>
-              <span className="block -mt-3 md:-mt-4">to Autonomous Savings</span>
+              <span className="block">to Autonomous Savings</span>
             </GradientWipe>
           </h2>
         </div>
