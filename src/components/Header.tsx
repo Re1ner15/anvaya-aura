@@ -32,16 +32,8 @@ const Header = () => {
                     className="h-10 w-auto relative z-10"
                   />
                   <span 
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary/30 pointer-events-none"
-                    style={{ animation: 'logo-ring 3s ease-out infinite' }}
-                  />
-                  <span 
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary/20 pointer-events-none"
-                    style={{ animation: 'logo-ring 3s ease-out infinite', animationDelay: '0.5s' }}
-                  />
-                  <span 
-                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-primary/10 pointer-events-none"
-                    style={{ animation: 'logo-ring 3s ease-out infinite', animationDelay: '1s' }}
+                    className="absolute bottom-0 left-0 h-[2px] w-full bg-primary pointer-events-none origin-left"
+                    style={{ animation: 'underline-sweep 1.2s ease-out forwards' }}
                   />
                 </div>
                 <div className="hidden sm:block">
