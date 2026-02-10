@@ -1,18 +1,20 @@
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import ParticleBackground from '@/components/animations/ParticleBackground';
-import { Users } from 'lucide-react';
+import { Users, Linkedin } from 'lucide-react';
 
 const team = [
   {
     name: 'Ranjit Jail',
     role: 'Co-founder',
     description: 'Leading Product Development and Operations at Anvaya',
+    linkedin: 'https://www.linkedin.com/in/ran15/',
   },
   {
     name: 'Aditya Joshi',
     role: 'Co-founder',
     description: 'Leading Product Refinement and Business Development at Anvaya',
+    linkedin: 'https://www.linkedin.com/in/adityajoshi72/',
   },
 ];
 
@@ -41,7 +43,16 @@ const TeamSection = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-1">{member.name}</h3>
                 <p className="text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-white/70 text-sm">{member.description}</p>
+                <p className="text-white/70 text-sm mb-4">{member.description}</p>
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm"
+                >
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn
+                </a>
               </motion.div>
             </ScrollReveal>
           ))}
