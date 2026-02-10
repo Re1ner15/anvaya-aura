@@ -38,7 +38,7 @@ const HowItWorksCarousel = () => {
   return (
     <section
       id="how-it-works"
-      className="py-12 md:py-16 px-4 md:px-8 bg-background relative overflow-hidden"
+      className="py-16 md:py-20 px-4 md:px-8 bg-background relative overflow-hidden"
     >
       <ParticleBackground color="teal" density="low" />
       <div className="absolute inset-0 bg-mesh opacity-30" />
@@ -87,7 +87,7 @@ const HowItWorksCarousel = () => {
                   style={{ transformOrigin: 'left' }}
                 />
 
-                <div className="p-6">
+                <div className="p-6 pt-7">
                   {/* Number + icon */}
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-4xl font-bold text-primary/10">
@@ -99,7 +99,7 @@ const HowItWorksCarousel = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-foreground mb-2">
+                  <h3 className="text-lg font-bold text-foreground mb-2 leading-normal">
                     {step.title}
                   </h3>
 

@@ -5,7 +5,6 @@ import HeroSection from '@/components/sections/HeroSection';
 import HowItWorksCarousel from '@/components/sections/HowItWorksCarousel';
 import DashboardSection from '@/components/sections/DashboardSection';
 import ScrollXMarkets from '@/components/sections/ScrollXMarkets';
-import TrustSection from '@/components/sections/TrustSection';
 import AboutSection from '@/components/sections/AboutSection';
 import TeamSection from '@/components/sections/TeamSection';
 import FAQSection from '@/components/sections/FAQSection';
@@ -35,7 +34,6 @@ const Index = () => {
         <DashboardSection />
         <HowItWorksCarousel />
         <ScrollXMarkets />
-        <TrustSection />
         <AboutSection />
         <TeamSection />
         <FAQSection />
