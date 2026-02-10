@@ -30,7 +30,7 @@ const DashboardSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50 transition-transform duration-500 ease-out hover:scale-105 cursor-pointer">
               <img
                 src={dashboardImage}
                 alt="Neev Energy Dashboard showing real-time building energy consumption and savings"
