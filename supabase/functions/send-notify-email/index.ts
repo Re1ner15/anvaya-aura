@@ -11,6 +11,17 @@ interface NotifyRequest {
   marketName: string;
 }
 
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  };
+  return text.replace(/[&<>"']/g, (char) => map[char]);
+}
+
 const handler = async (req: Request): Promise<Response> => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -27,6 +38,9 @@ const handler = async (req: Request): Promise<Response> => {
     if (!emailRegex.test(data.email)) {
       throw new Error("Invalid email address");
     }
+    if (data.email.length > 255 || data.marketName.length > 200) {
+      throw new Error("Input exceeds maximum length");
+    }
 
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     if (!RESEND_API_KEY) {
@@ -36,10 +50,10 @@ const handler = async (req: Request): Promise<Response> => {
     const htmlBody = `
       <h2>New Market Interest Notification</h2>
       <table style="border-collapse: collapse; width: 100%;">
-        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Market</td><td style="padding: 8px; border: 1px solid #ddd;">${data.marketName}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${data.email}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Market</td><td style="padding: 8px; border: 1px solid #ddd;">${escapeHtml(data.marketName)}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${escapeHtml(data.email)}</td></tr>
       </table>
-      <p style="margin-top: 16px; color: #666;">This person wants to be notified when ${data.marketName} becomes available on Neev.</p>
+      <p style="margin-top: 16px; color: #666;">This person wants to be notified when ${escapeHtml(data.marketName)} becomes available on Neev.</p>
     `;
 
     const res = await fetch("https://api.resend.com/emails", {
@@ -51,7 +65,7 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "Neev Notifications <onboarding@resend.dev>",
         to: ["director@anvayaenertech.in"],
-        subject: `Market Interest: ${data.marketName}`,
+        subject: `Market Interest: ${escapeHtml(data.marketName)}`,
         html: htmlBody,
       }),
     });
