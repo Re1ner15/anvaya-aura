@@ -11,6 +11,7 @@ import FAQSection from '@/components/sections/FAQSection';
 import ContactSection from '@/components/sections/ContactSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/Footer';
+import LeadCapturePopup from '@/components/LeadCapturePopup';
 
 const Index = () => {
   const location = useLocation();
@@ -28,6 +29,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <LeadCapturePopup />
       <Header />
       <main>
         <HeroSection />
