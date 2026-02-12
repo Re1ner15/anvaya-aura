@@ -51,6 +51,29 @@ const ParticleBackground = ({
     }
   }, [finalCount]);
 
+  // Pause particles while scrolling on mobile to prevent jitter
+  const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef<number>();
+
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (!isMobile) return;
+
+    const handleScroll = () => {
+      isScrollingRef.current = true;
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = window.setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 150);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+    };
+  }, []);
+
   const animate = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -61,9 +84,11 @@ const ParticleBackground = ({
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     particlesRef.current.forEach((particle) => {
-      // Update position
-      particle.x += particle.vx;
-      particle.y += particle.vy;
+      // Skip position updates while scrolling on mobile
+      if (!isScrollingRef.current) {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+      }
 
       // Bounce off edges with elastic effect
       if (particle.x <= 0 || particle.x >= canvas.width) {
