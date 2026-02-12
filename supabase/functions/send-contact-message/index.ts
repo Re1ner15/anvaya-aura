@@ -12,6 +12,17 @@ interface ContactRequest {
   message: string;
 }
 
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  };
+  return text.replace(/[&<>"']/g, (char) => map[char]);
+}
+
 const handler = async (req: Request): Promise<Response> => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -24,6 +35,14 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error("Missing required fields: name, email, message");
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(data.email)) {
+      throw new Error("Invalid email address");
+    }
+    if (data.name.length > 200 || data.email.length > 255 || data.message.length > 5000) {
+      throw new Error("Input exceeds maximum length");
+    }
+
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     if (!RESEND_API_KEY) {
       throw new Error("RESEND_API_KEY is not configured");
@@ -32,9 +51,9 @@ const handler = async (req: Request): Promise<Response> => {
     const htmlBody = `
       <h2>New Contact Form Message</h2>
       <table style="border-collapse: collapse; width: 100%;">
-        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Name</td><td style="padding: 8px; border: 1px solid #ddd;">${data.name}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${data.email}</td></tr>
-        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Message</td><td style="padding: 8px; border: 1px solid #ddd;">${data.message}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Name</td><td style="padding: 8px; border: 1px solid #ddd;">${escapeHtml(data.name)}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Email</td><td style="padding: 8px; border: 1px solid #ddd;">${escapeHtml(data.email)}</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold;">Message</td><td style="padding: 8px; border: 1px solid #ddd;">${escapeHtml(data.message)}</td></tr>
       </table>
     `;
 
@@ -47,7 +66,7 @@ const handler = async (req: Request): Promise<Response> => {
       body: JSON.stringify({
         from: "Neev Contact <onboarding@resend.dev>",
         to: ["director@anvayaenertech.in"],
-        subject: `Contact Form: ${data.name}`,
+        subject: `Contact Form: ${escapeHtml(data.name)}`,
         html: htmlBody,
       }),
     });
