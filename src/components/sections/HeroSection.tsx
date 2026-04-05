@@ -83,7 +83,7 @@ const HeroSection = () => {
           >
             <span className="text-primary font-semibold">10–30% energy savings</span>
             <span className="text-muted-foreground"> · </span>
-            <span className="text-primary font-semibold">Zero disruption</span>
+            <span className="text-primary font-semibold">Reduced carbon footprint</span>
             <span className="text-muted-foreground"> · </span>
             <span className="text-primary font-semibold">Fully autonomous</span>
           </motion.p>

@@ -29,12 +29,18 @@ const AboutSection = () => {
       <div className="container-custom relative z-10">
         <ScrollReveal className="text-center mb-12">
           <span className="inline-block px-4 py-1.5 mb-4 text-sm font-medium text-primary bg-primary/10 rounded-full">
-            Building the Future
+            Building a Greener Future
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Building the Future of{' '}
-            <span className="text-gradient">Autonomous Energy</span>
+            Building a Greener Future of{' '}
+            <span className="text-gradient">Autonomous Energy Management</span>
           </h2>
+          <p className="text-muted-foreground max-w-3xl mx-auto mb-3 italic">
+            A hotel saving 200 MWh/year would avoid ~145 tonnes CO₂ annually, equivalent to planting ~7,250 trees for one year.
+          </p>
+          <p className="text-primary font-semibold text-lg mb-3">
+            We can help you create such an impact!
+          </p>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Anvaya EnerTech is pioneering AI-powered energy management for buildings everywhere.
           </p>
