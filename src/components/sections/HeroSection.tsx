@@ -83,7 +83,7 @@ const HeroSection = () => {
           >
             <span className="text-primary font-semibold">10–30% energy savings</span>
             <span className="text-muted-foreground"> · </span>
-            <span className="text-primary font-semibold">Zero disruption</span>
+            <span className="text-primary font-semibold">Reduced carbon footprint</span>
             <span className="text-muted-foreground"> · </span>
             <span className="text-primary font-semibold">Fully autonomous</span>
           </motion.p>
@@ -131,7 +131,7 @@ const HeroSection = () => {
           >
             <CheckCircle className="w-4 h-4 text-primary" />
             <span className="text-sm text-muted-foreground">
-              Pilot Program Launching March 2026
+              Pilot Program Now Live — Apply Today
             </span>
           </motion.div>
         </div>
