@@ -131,7 +131,7 @@ const HeroSection = () => {
           >
             <CheckCircle className="w-4 h-4 text-primary" />
             <span className="text-sm text-muted-foreground">
-              Pilot Program Launching March 2026
+              Pilot Program Now Live — Apply Today
             </span>
           </motion.div>
         </div>
